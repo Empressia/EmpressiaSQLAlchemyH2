@@ -1,0 +1,46 @@
+# .pypircにusername（__token__）とpassword（トークン）を用意して
+# hatch build
+# hatch publish
+
+[build-system]
+requires = ["hatchling", "pygit2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Empressia-SQLAlchemy-H2"
+dynamic = ["version"]
+
+description = """
+Empressia製のSQLAlchemy用のDialectです。
+H2 DatabaseへのJayDeBeApiを使用したJDBC接続をサポートします。
+"""
+license = "MIT"
+license-files = ["LICENSE.txt"]
+readme = "README.md"
+
+authors = [
+	{ name = "すふぃあ" }
+]
+maintainers = [
+	{ name = "すふぃあ" }
+]
+
+requires-python = ">= 3.10"
+dependencies = [
+	"sqlalchemy >= 2.0",
+	"jaydebeapi >= 1.2.3"
+]
+
+classifiers = [ "Topic :: Database" ]
+keywords = ["Empressia", "SQLAlchemy", "H2 Database", "JayDeBeApi", "JDBC"]
+
+[project.urls]
+Homepage = "https://github.com/Empressia/EmpressiaSQLAlchemyH2/"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/empressia_sqlalchemy_h2/"
+]
+
+[tool.hatch.metadata.hooks.custom]
+path = "__version__.py"

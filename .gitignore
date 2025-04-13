@@ -1,0 +1,5 @@
+__pycache__/
+.pypirc
+/dist/
+/config.json
+/h2-*.jar

@@ -1,0 +1,11 @@
+[run]
+data_file = dist/coverage/.coverage
+omit =
+	test/*
+	__version__.py
+
+[xml]
+output = dist/coverage/coverage.xml
+
+[html]
+directory = dist/coverage/html/
