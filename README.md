@@ -66,6 +66,15 @@ Dialectを用意してある場合は、DelegateDialectを指定してくださ�
 Dialectを用意してない場合や、DelegateDialectだけでは問題が起きる場合は、DelegateAttributesを指定してください。  
 DelegateAttributesを優先的に使用します。  
 
+## テスト用のユーティリティ
+
+テスト用に、ユーティリティを用意しています。  
+H2 Databaseのjarファイルをダウンロードすることができます。  
+
+```
+empressia_sqlalchemy_h2.test.Utilities.downloadH2Jar("h2-<version>.jar", "<SHA-256 HEX文字列>");
+```
+
 ## その他
 
 このプロジェクトをテストするときは、config.jsonを用意します。  

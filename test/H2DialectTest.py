@@ -3,7 +3,7 @@ import data.MSSQLServer;
 import data.MySQL;
 import data.Oracle;
 import data.PostgreSQL;
-import empressia_sqlalchemy_h2;
+import empressia_sqlalchemy_h2.test;
 import empressia_sqlalchemy_h2.H2DialectException;
 import inspect;
 import json;
@@ -36,29 +36,8 @@ class H2DialectTest(unittest.TestCase):
 		if(config.get("H2Hash") != None):
 			hash = config["H2Hash"];
 		path = self._H2Path;
-		if((path != None) and (os.path.exists(path) == False) and (hash != None)):
-			import pathlib;
-			pathlib.Path(path).stem;
-			(a, *vs) = pathlib.Path(path).stem.split("-", 1);
-			if((a == "h2") and (len(vs) == 1)):
-				v = vs[0];
-				import urllib.request;
-				URL = f"https://repo1.maven.org/maven2/com/h2database/{a}/{v}/{a}-{v}.jar";
-				with(urllib.request.urlopen(URL) as r):
-					fileBytes = r.read();
-					import hashlib;
-					hasher = hashlib.sha256();
-					hasher.update(fileBytes);
-					hashString = hasher.hexdigest();
-				# hexdigestが小文字を返すようなのでそちらにそろえている（定義上には明記されていなかった）。
-				if(hashString.lower() == hash.lower()):
-					with(open(path, "wb") as f):
-						f.write(fileBytes);
-						f.close();
-				else:
-					raise empressia_sqlalchemy_h2.H2DialectException("H2のjarの検証に失敗しました。");
-			else:
-				raise empressia_sqlalchemy_h2.H2DialectException("H2のjarのファイル名の確認に失敗しました。");
+		if((path != None) and (hash != None)):
+			empressia_sqlalchemy_h2.test.Utilities.downloadH2Jar(path, hash);
 
 	def test_シンプルに接続できてSQL操作できる(self):
 		if(self._H2Path != None):

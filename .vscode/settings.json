@@ -1,5 +1,8 @@
 {
 	"python.analysis.typeCheckingMode": "strict",
+	"python.analysis.diagnosticSeverityOverrides": {
+		"reportConstantRedefinition": "none"
+	},
 	"python.testing.unittestArgs": [
 		"-v",
 		"-s",

@@ -37,6 +37,24 @@ keywords = ["Empressia", "SQLAlchemy", "H2 Database", "JayDeBeApi", "JDBC"]
 [project.urls]
 Homepage = "https://github.com/Empressia/EmpressiaSQLAlchemyH2/"
 
+[tool.ruff]
+ignore = [
+	# 長さは自分で調整する。
+	"E501",
+	# セミコロン書きたい。本当は、必須にしたい。
+	"E703",
+	# 全体をあくまで等価比較したい。
+	"E711",
+	# 全体をあくまで等価比較したい。本当は、左辺を真偽値であるかを検出したい。
+	"E712",
+	# アスタリスクを使ったimportを使用する。
+	"F403",
+	# アスタリスクを使ったimportを使用する。
+	"F405",
+	# f-stringを置換なしで使用する。
+	"F541"
+]
+
 [tool.hatch.build.targets.sdist]
 include = [
   "/empressia_sqlalchemy_h2/"

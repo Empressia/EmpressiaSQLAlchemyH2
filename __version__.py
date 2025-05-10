@@ -30,7 +30,7 @@ class VersionMetadataHook(hatchling.metadata.plugin.interface.MetadataHookInterf
 
 		if(r.head_is_unborn == False):
 			HeadCommitID = r.head.peel(pygit2.Commit).id; # type: ignore[reportUnknownMemberType]
-			for commit in r.walk(r.head.target, pygit2.enums.SortMode.TOPOLOGICAL|pygit2.enums.SortMode.REVERSE):
+			for commit in r.walk(r.head.target, pygit2.enums.SortMode.TOPOLOGICAL):
 				tag = CommitIDTags.get(commit.id);
 				if(tag != None):
 					if(commit.id == HeadCommitID):
