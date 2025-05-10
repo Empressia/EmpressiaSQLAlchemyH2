@@ -37,7 +37,7 @@ keywords = ["Empressia", "SQLAlchemy", "H2 Database", "JayDeBeApi", "JDBC"]
 [project.urls]
 Homepage = "https://github.com/Empressia/EmpressiaSQLAlchemyH2/"
 
-[tool.ruff]
+[tool.ruff.lint]
 ignore = [
 	# 長さは自分で調整する。
 	"E501",

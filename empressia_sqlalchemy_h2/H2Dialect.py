@@ -38,7 +38,7 @@ class H2Dialect(sqlalchemy.engine.default.DefaultDialect):
 
 	subnameにMODEを指定することで、勝手に、Dialectの動作を切り替えます。
 	MSSQLServer、MariaDB、MySQL、Oracle、PostgreSQLのモードであれば、これだけで十分だと思います。
-	h2:///mem:TestDB;MODE=MSSQLServer  
+	h2:///mem:TestDB;MODE=MSSQLServer
 
 	さらに、Dialectの振る舞いを差し替えたい場合は、
 	sqlalchemy.create_engineを呼ぶときに、DelegateDialectを指定するか、DelegateAttributesを指定してください。

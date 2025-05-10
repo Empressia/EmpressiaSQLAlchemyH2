@@ -23,4 +23,3 @@ class UserRole(EntityBase):
 		),
 	);
 	__tablename__ = "UserRole";
-	
